@@ -66,12 +66,12 @@ pipeline {
             }
         }
         stage ('Promote to QA'){
-            //agent{label'slave01'}
+            //agent{label'slave1'}
             steps {
                 unstash 'package_build'
                 echo 'Promoting to QA'
                 sh 'docker-compose -f docker-compose-promote.yaml up -d'
-                sh 'docker-compose -f docker-compose-promote.yaml down || true'
+                sh 'docker-compose down || true'
                 
             }
         }
