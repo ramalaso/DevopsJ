@@ -6,8 +6,10 @@ pipeline {
         ID= '4514812/ramalaso'
     }
     stages {
-        agent {dockerfile true}
         stage ('Build') {
+            agent {
+                docker {image '${ID}:v1.1'}
+            }
             steps {
                 sh 'chmod +x gradlew'
                 sh './gradlew build'
