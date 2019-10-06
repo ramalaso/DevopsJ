@@ -5,8 +5,8 @@ pipeline {
         PASSWORD = 'r4514812L'
         ID= '4514812/ramalaso'
     }
-    agent {dockerfile true}
     stages {
+        agent {dockerfile true}
         stage ('Build') {
             steps {
                 sh 'chmod +x gradlew'
